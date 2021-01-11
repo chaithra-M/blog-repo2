@@ -1,0 +1,18 @@
+<html>
+    {%extends 'myApp/parent.html'%}
+    {%block title_block%}
+      <h2>Chaithra's Blog</h2>
+    {%endblock%}
+    <body>
+        {%block content_block%}
+        <h1 style="color:red">Chaithra's Home Blog</h1>
+        {%for post in post_list%}
+        <a href="{{post.get_absolute_url}}"><h2><b>{{post.title}}</b></h2></a>
+        <i><b>Published on {{post.publish}} by {{post.author|title}}</b></i>
+        {{post.body|truncatewords:40|linebreaks}}
+
+        {%endfor%}
+        {%endblock%}
+    </body>
+
+</html>
